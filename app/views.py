@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import login
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -23,7 +24,7 @@ def doLogin(request):
             user_type = user.user_type
             if user_type == '1':
                 print(user_type)
-                return HttpResponse('This is Hod Panel')
+                return redirect('hod_home')
             elif user_type == '2':
                 print(user_type)
                 return HttpResponse('This is Staff Panel')
@@ -31,10 +32,14 @@ def doLogin(request):
                 print(user_type)
                 return HttpResponse('This is Student Panel')
             else:
-                # messages.error(request, 'Email and Password Are Invalid !')
+                messages.error(request, 'Email and Password Are Invalid !')
                 return redirect('login')
         else:
             print('redirected')
-            # messages.error(request, 'Email and Password Are Invalid !')
+            messages.error(request, 'Email and Password Are Invalid !')
             return redirect('login')
 
+
+def doLogout(request):
+    logout(request)
+    return redirect('login')
