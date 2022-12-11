@@ -23,7 +23,7 @@
         },
       {
         "src": "/(.*)",
-        "dest": "poll/wsgi.py"
+        "dest": "student_management_system/wsgi.py"
       }
        ]
   }
