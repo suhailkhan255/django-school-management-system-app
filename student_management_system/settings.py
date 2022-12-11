@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5@uv&ol*3_gzya@-i9$a$npga8e(9=sz3b1jq(-h#za(g7cf$@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -130,3 +130,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'app.CustomUser'
+
+import os
+STATICFILES_DIRS =os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles_build', 'static')

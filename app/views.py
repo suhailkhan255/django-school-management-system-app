@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, logout, login
 from .EmailBackEnd import EmailBackEnd
-
+from django.contrib.auth.decorators import login_required
 
 def BASE(request):
     return render(request, 'base.html')
